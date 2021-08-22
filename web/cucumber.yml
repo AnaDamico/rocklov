@@ -1,0 +1,13 @@
+---
+default: --publish-quiet -p allure -p bdd -p chrome
+
+# profile
+bdd: -f pretty
+html: -f html -o logs/report.html
+allure: --format AllureCucumber::CucumberFormatter --out=logs
+local: CONFIG=local.yml
+hml: CONFIG=hml.yml
+firefox: BROWSER=firefox
+firefox_headless: BROWSER=firefox_headless
+chrome: BROWSER=chrome
+chrome_headless: BROWSER=chrome_headless

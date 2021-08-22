@@ -1,0 +1,23 @@
+---
+- title: campo nome é obrigatorio
+  payload:
+    name: 
+    email: claudia@rocklov.com
+    password: '123456'
+  code: 412
+  error: required name
+- title: campo email é obrigatorio
+  payload:
+    name: Cris
+    email: 
+    password: '123456'
+  code: 412
+  error: required email
+- title: campo senha é obrigatorio
+  payload:
+    name: Beatriz
+    email: bia@rocklov.com
+    password: ''
+  code: 412
+  error: required password
+

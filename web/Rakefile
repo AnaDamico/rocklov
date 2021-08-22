@@ -1,0 +1,22 @@
+require "digest/md5"
+
+require_relative "features/support/libs/mongo"
+
+def to_md5(pass)
+  return Digest::MD5.hexdigest(pass)
+end
+
+task :seeds do
+    users = [
+        { name: "Carolina", email: "carolina@rocklov.com", password: to_md5("pwd123") },
+        { name: "Ana", email: "ana@rocklov.com", password: to_md5("pwd123") },
+        { name: "Fred", email: "fred@rocklov.com", password: to_md5("pwd123") },
+        { name: "Maria_Locataria", email: "maria@rocklov.com", password: to_md5("pwd123") },   
+        { name: "Joao_Anunciante", email: "Joao@rocklov.com", password: to_md5("pwd123") },    
+    ]     
+    
+    MongoDB.new.drop_danger
+    MongoDB.new.insert_users(users)
+    
+    sh "cucumber"
+end

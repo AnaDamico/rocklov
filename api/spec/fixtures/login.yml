@@ -1,0 +1,35 @@
+---
+- title: senha incorreta
+  payload:
+    email: carolina@rocklov.com
+    password: '123456'
+  code: 401
+  error: Unauthorized
+- title: usuario não existe
+  payload:
+    email: 404@rocklov.com
+    password: '123456'
+  code: 401
+  error: Unauthorized
+- title: email em branco
+  payload:
+    email: ''
+    password: '123456'
+  code: 412
+  error: required email
+- title: sem preenchimento do email
+  payload:
+    password: '123456'
+  code: 412
+  error: required email
+- title: senha em branco
+  payload:
+    email: 404@rocklov.com
+    password: ''
+  code: 412
+  error: required password
+- title: sem preenchimento da senha
+  payload:
+    email: 404@rocklov.com
+  code: 412
+  error: required password
