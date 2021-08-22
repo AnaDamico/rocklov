@@ -1,0 +1,27 @@
+pipeline {
+    agent {
+        docker {
+            image 'ruby'
+            args '--network rocklov-network'
+        } 
+    }
+
+    stages {
+        stage('Preparation') {
+            steps {
+                sh 'cd web && bundle install'
+            }
+        }
+        stage('Testing Web') {
+            steps {
+                sh  'cd web && rake seeds'
+            }
+        }
+    }
+
+    post {
+        always {
+           echo "todo"
+        }
+    }
+}
