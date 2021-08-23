@@ -18,5 +18,5 @@ task :seeds do
     MongoDB.new.drop_danger
     MongoDB.new.insert_users(users)
     
-    sh "cucumber"
+    sh "cucumber -p jenkins"
 end
